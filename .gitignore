@@ -28,3 +28,6 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
+
+# I keep the secrets in this project, but I do not want to push it to Git
+intellij_new_user_credentials.csv
