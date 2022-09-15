@@ -8,7 +8,7 @@
 Instantiations will have state which will be stored in a bucket. In turn if I create the bucket with Terraform, that
 will also generate state. Therefore, that will be stored locally on my computer and will not be pushed to git.
 
-# run code
+## run code
 
 ```
 aws configure  [here provide the secret_key and secret_key]
@@ -22,7 +22,7 @@ terraform apply
 terraform destroy
 ```
 
-# REQUIREMENTS
+## Requirements
 
 ```
 λ terraform --version
@@ -42,6 +42,6 @@ VERSION:
 aws-cli/2.7.32 Python/3.9.11 Windows/10 exe/AMD64 prompt/off
 ```
 
-# HINTS!
+## HINTS!
 
 [Install AWS Cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) 
