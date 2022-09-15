@@ -8,10 +8,11 @@ variable "availability_zones" {
   type = list(string)
 }
 
-variable "name" {
+variable "rt_name" {
   description = "Name of this subnet"
   type = string
 }
+
 variable "cidrs" {
   description = "CIDR blocks for this subnet"
   type = list(string)
