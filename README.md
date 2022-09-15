@@ -45,3 +45,8 @@ aws-cli/2.7.32 Python/3.9.11 Windows/10 exe/AMD64 prompt/off
 ## HINTS!
 
 [Install AWS Cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) 
+
+
+## Supporting articles
+
+* [Migrating from Terraform to Terragrunt](https://medium.com/bestmile/migrating-from-terraform-to-terragrunt-cf91f5d7a301)
