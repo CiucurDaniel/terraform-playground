@@ -20,6 +20,12 @@ terraform plan
 terraform apply
 
 terraform destroy
+
+Once Terragrunt is used, we have the possibility to run all modules at once
+
+terragrunt run-all apply
+
+terragrunt run-all destroy
 ```
 
 ## Requirements
@@ -44,9 +50,5 @@ aws-cli/2.7.32 Python/3.9.11 Windows/10 exe/AMD64 prompt/off
 
 ## HINTS!
 
-[Install AWS Cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) 
-
-
-## Supporting articles
-
-* [Migrating from Terraform to Terragrunt](https://medium.com/bestmile/migrating-from-terraform-to-terragrunt-cf91f5d7a301)
+[Install AWS Cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+[Terraform Best Practices](https://www.terraform-best-practices.com/)
