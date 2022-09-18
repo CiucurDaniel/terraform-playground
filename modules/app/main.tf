@@ -12,6 +12,15 @@ provider "aws" {
   region = "us-east-1"
 }
 
+data "template_file" "user_data" {
+  template = file("server.sh")
+
+  vars = {
+    "port" = var.server_port
+    "environment" = var.environment
+  }
+}
+
 # Configure the EC2 INSTANCE
 
 resource "aws_instance" "app_server" {
@@ -22,10 +31,7 @@ resource "aws_instance" "app_server" {
   vpc_security_group_ids = [
     aws_security_group.app_server_security_group.id]
 
-  user_data = templatefile("${path.module}/server.sh", {
-    environment = var.environment
-    server_port = var.server_port
-  })
+  user_data = data.template_file.user_data.rendered
 
   tags = {
     Name = "app_server_ec2"
