@@ -1,7 +1,10 @@
 terragrunt_version_constraint = ">=0.35"
 
 terraform {
-
+  before_hook "before_hook" {
+    commands     = ["apply", "plan"]
+    execute      = ["echo", "Running Terraform"]
+  }
 }
 
 locals {
