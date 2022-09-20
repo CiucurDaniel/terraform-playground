@@ -1,4 +1,5 @@
 terraform {
+
   required_providers {
     aws = {
       source = "hashicorp/aws"
@@ -7,10 +8,6 @@ terraform {
   }
 }
 
-# Configure the AWS Provider
-provider "aws" {
-  region = "us-east-1"
-}
 
 data "template_file" "user_data" {
   template = file("server.sh")
