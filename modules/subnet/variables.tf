@@ -3,14 +3,14 @@ variable "vpc_id" {
   type = string
 }
 
-variable "availability_zones" {
+variable "availability_zone" {
   description = "Which AZs to use for the subnets"
-  type = list(string)
+  type = string
 }
 
-variable "cidrs" {
+variable "cidr" {
   description = "CIDR blocks for this subnet"
-  type = list(string)
+  type = string
 }
 
 variable "environment" {
