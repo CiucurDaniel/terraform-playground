@@ -3,6 +3,7 @@
 // afterwards the route to internet gateway will be added to the route table
 
 terraform {
+
   required_providers {
     aws = {
       source = "hashicorp/aws"
@@ -11,10 +12,6 @@ terraform {
   }
 }
 
-# Configure the AWS Provider
-provider "aws" {
-  region = "us-east-1"
-}
 
 # Create the subnet
 
