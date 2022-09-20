@@ -1,0 +1,20 @@
+{
+  "members": [
+    {
+      "name": "Daniel",
+      "role": "DevOps"
+    },
+    {
+      "name": "Mike",
+      "role": "UI/UX"
+    },
+    {
+      "name": "John",
+      "role": "Developer"
+    },
+    {
+      "name": "Alex",
+      "role": "Developer"
+    }
+  ]
+}
