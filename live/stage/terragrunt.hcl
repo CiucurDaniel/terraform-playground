@@ -1,16 +1,28 @@
 terragrunt_version_constraint = ">=0.35"
 
 terraform {
-  before_hook "before_hook" {
-    commands     = ["apply", "plan"]
-    execute      = ["echo", "Running Terraform"]
-  }
+  // hooks can be added here
 }
 
 locals {
-  env = "prod"
+  env = "dev"
   env_valid = contains(["dev", "prod"], local.env)
   values = yamldecode(file("values.${local.env}.yaml"))
 }
 
-// TODO: For now no backend has been used at all, therefore add remote state
+remote_state {
+  backend = "s3"
+
+  generate = {
+    path = "backend.tf"
+    if_exists = "overwrite"
+  }
+
+  config = {
+    bucket = "terraform-playground-state-bkt"
+    key = "${path_relative_to_include()}/terraform.tfstate"
+    region = "us-east-1"
+    encrypt = true
+    dynamodb_table = "terraform-lock-table"
+  }
+}
