@@ -16,14 +16,13 @@ terraform {
 # Create the subnet
 
 resource "aws_subnet" "subnet" {
-  count = length(var.cidrs)
   vpc_id = var.vpc_id
-  cidr_block = var.cidrs[count.index]
-  availability_zone = var.availability_zones[count.index]
+  cidr_block = var.cidr
+  availability_zone = var.availability_zone
   //map_public_ip_on_launch = true
 
   tags = {
-    Name = "Public Subnet for ${var.environment} no ${count.index}"
+    Name = "Public Subnet for ${var.environment}"
   }
 }
 
@@ -38,11 +37,10 @@ resource "aws_route_table" "table" {
   }
 }
 
-# Append each subnet to the route_table
+# Append subnet to the route_table
 
 resource "aws_route_table_association" "assoc" {
-  count          = length(var.cidrs)
-  subnet_id      = aws_subnet.subnet[count.index].id
+  subnet_id = aws_subnet.subnet.id
   route_table_id = aws_route_table.table.id
 }
 
