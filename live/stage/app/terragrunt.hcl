@@ -18,6 +18,6 @@ inputs = {
   ami_id = "ami-05fa00d4c63e32376"
   environment = "prod"
   instance_type = "t2.micro"
-  subnet_id = dependency.subnet.outputs.subnet_ids[0]
+  subnet_id = dependency.subnet.outputs.subnet_id
   vpc_id = dependency.vpc.outputs.id
 }
