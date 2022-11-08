@@ -8,7 +8,6 @@ terraform {
   }
 }
 
-
 data "template_file" "user_data" {
   template = file("server.sh")
 
@@ -27,6 +26,8 @@ resource "aws_instance" "app_server" {
   associate_public_ip_address = true
   vpc_security_group_ids = [
     aws_security_group.app_server_security_group.id]
+
+  key_name = "FIXME: Add variable here"
 
   user_data = data.template_file.user_data.rendered
 
