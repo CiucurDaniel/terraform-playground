@@ -52,3 +52,4 @@ aws-cli/2.7.32 Python/3.9.11 Windows/10 exe/AMD64 prompt/off
 
 [Install AWS Cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 [Terraform Best Practices](https://www.terraform-best-practices.com/)
+[Terraform fmt Check](https://github.com/marketplace/actions/terraform-fmt-check)
