@@ -14,7 +14,7 @@ remote_state {
   backend = "s3"
 
   generate = {
-    path = "backend.tf"
+    path = "${path_relative_to_include()}/backend.tf"
     if_exists = "overwrite"
   }
 
