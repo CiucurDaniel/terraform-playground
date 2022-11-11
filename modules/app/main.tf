@@ -8,6 +8,24 @@ terraform {
   }
 }
 
+# Obtain Ubuntu AMI from code
+
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["099720109477"] # Canonical
+}
+
 data "template_file" "user_data" {
   template = file("server.sh")
 
@@ -20,14 +38,14 @@ data "template_file" "user_data" {
 # Configure the EC2 INSTANCE
 
 resource "aws_instance" "app_server" {
-  ami = var.ami_id
+  ami = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   subnet_id = var.subnet_id
   associate_public_ip_address = true
   vpc_security_group_ids = [
     aws_security_group.app_server_security_group.id]
 
-  key_name = "FIXME: Add variable here"
+  key_name = var.ssh_key_name
 
   user_data = data.template_file.user_data.rendered
 
