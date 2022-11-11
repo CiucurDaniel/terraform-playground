@@ -15,9 +15,9 @@ dependency "subnet" {
 }
 
 inputs = {
-  ami_id = "ami-05fa00d4c63e32376"
   environment = "prod"
   instance_type = "t2.micro"
+  ssh_key_name = "EC2_DEMO_SSH" # This was created in AWS
   subnet_id = dependency.subnet.outputs.subnet_id
   vpc_id = dependency.vpc.outputs.id
 }
