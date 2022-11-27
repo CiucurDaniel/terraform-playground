@@ -1,5 +1,5 @@
 terraform {
-  source = "../../../modules//app"
+  source = "../../../modules//ec2-developer-machine"
 }
 
 include {
@@ -15,7 +15,7 @@ dependency "subnet" {
 }
 
 inputs = {
-  environment = "prod"
+  environment = "dev"
   instance_type = "t2.micro"
   ssh_key_name = "EC2_DEMO_SSH" # This was created in AWS
   subnet_id = dependency.subnet.outputs.subnet_id
