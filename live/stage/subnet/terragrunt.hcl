@@ -19,6 +19,6 @@ inputs = {
   cidr = "10.0.0.0/16"
   environment = "prod"
   vpc_id = dependency.vpc.outputs.id
-  rt_name = "Route table prod"
+  rt_name = "Route table"
 }
 
